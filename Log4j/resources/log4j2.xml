@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    
+    <!-- Log4j yapılandırmasının başlangıcı -->
+    
+    <Properties>
+        <!-- filename özelliği, log dosyalarının kaydedileceği dizini belirtir -->
+        <Property name="filename">./logs</Property>
+    </Properties>
+    
+    <Appenders>
+        <!-- RollingFile appender'ı, logları dosyaya yazmak için kullanılır -->
+        <RollingFile name="file" filePattern="${filename}/Timer_%d{dd_MM_yyyy}.log">
+            <PatternLayout>
+                <!-- Log kaydının formatını belirtir -->
+                <pattern>%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</pattern>
+            </PatternLayout>
+            <SizeBasedTriggeringPolicy size="1 MB" />
+            <!-- Log dosyalarının boyutu belirli bir eşiği aştığında dosya yeniden adlandırılır -->
+        </RollingFile>
+        
+        <!-- Console appender'ı, logları konsola yazmak için kullanılır -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+        </Console>
+    </Appenders>
+    
+    <Loggers>
+        <Root level="debug">
+            <!-- Root logger'ı, tüm log seviyelerini kabul eder -->
+            <AppenderRef ref="Console" />
+            <!-- Console appender'ını root logger'a ekler -->
+            <AppenderRef ref="file" />
+            <!-- RollingFile appender'ını root logger'a ekler -->
+        </Root>
+    </Loggers>
+    
+    <!-- Log4j yapılandırmasının sonu -->
+    
+</Configuration>
