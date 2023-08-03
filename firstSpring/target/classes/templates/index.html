@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Subscribers Manager Application</title>
+</head>
+<body>
+<div align="center">
+    <h1>Subscribers Records</h1>
+    <a href="/new">Enter New Subscriber</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>SUBSC_ID</th>
+                <th>SUBSC_NAME</th>
+                <th>SUBSC_SURNAME</th>
+                <th>MSISDN</th>
+                <th>TARIFF_ID</th>
+                <th>START_DATE</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="subscriber : ${listSubscriber}">
+            <td th:text="${subscriber.SUBSC_ID}">SUBSC_ID</td>
+                <td th:text="${subscriber.SUBSC_NAME}">SUBSC_NAME</td>
+                <td th:text="${subscriber.SUBSC_SURNAME}">SUBSC_SURNAME</td>
+                <td th:text="${subscriber.MSISDN}">MSISDN</td>
+                <td th:text="${subscriber.TARIFF_ID}">TARIFF_ID</td>
+                <td th:text="${subscriber.START_DATE}">START_DATE</td>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>  
+</body>
+</html>

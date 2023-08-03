@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>New Subscriber</title>
+</head>
+<body>
+<div align="center">
+    <h1>Enter New Subscriber</h1>
+    <br />
+    <form action="#" th:action="@{/save}" th:object="${subscriber}"
+          method="post">
+
+        <table border="0" cellpadding="10">
+            <tr>
+                <td>SUBSC_ID:</td>
+                <td><label>
+                    <input type="text" th:field="*{SUBSC_ID}" />
+                </label></td>
+            </tr>
+            <tr>
+                <td>SUBSC_NAME:</td>
+                <td><label>
+                    <input type="text" th:field="*{SUBSC_NAME}" />
+                </label></td>
+            </tr>
+            <tr>
+                <td>SUBSC_SURNAME:</td>
+                <td><label>
+                    <input type="text" th:field="*{SUBSC_SURNAME}" />
+                </label></td>
+            </tr>
+            <tr>
+                <td>MSISDN:</td>
+                <td><label>
+                    <input type="text" th:field="*{MSISDN}" />
+                </label></td>
+            </tr>
+            <tr>
+                <td>TARIFF_ID:</td>
+                <td><label>
+                    <input type="text" th:field="*{TARIFF_ID}" />
+                </label></td>
+            </tr>
+            <tr>
+                <td>START_DATE:</td>
+                <td><label>
+                    <input type="text" th:field="*{START_DATE}" />
+                </label></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Save</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
